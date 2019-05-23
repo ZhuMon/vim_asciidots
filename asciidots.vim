@@ -9,9 +9,11 @@ if exists("b:current_syntax")
 endif
 
 " Asciidots Keywords
-syntax match Comment "\v\`\`.*$"
+syntax match declaration "\v\%\!.*\ "
+syntax match declaration "\v\%\^"
+syntax match declaration "\v\%\$"
 
-syntax match Number "\<\d\>"
+syntax match Number "\<\d*\>"
 
 syntax match turn "\vv"
 syntax match turn "\v\>"
@@ -40,6 +42,7 @@ syntax region dotsOP matchgroup=brackets start=/\v\[/  end=/\v]/
 syntax region dotsString start=/\v"/ skip=/\v\\./ end=/\v"/
 syntax region dotsString start=/\v'/ skip=/\v\\./ end=/\v'/
 
+syntax match Comment "\v\`\`.*$"
 
 " Highlight keyword
 hi link dotsOP Operator
